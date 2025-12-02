@@ -1,6 +1,6 @@
 import serial, time
 
-PORT = "/dev/ttyHS2"   # Try this one first
+PORT = "/dev/ttyHS2"   
 BAUD = 115200
 
 print(f"Opening {PORT} at {BAUD} baud...")
@@ -13,12 +13,12 @@ except Exception as e:
 cmd = '{"T":1,"L":0.1,"R":0.1}\n'
 
 print("Sending drive commands...")
-for i in range(10):
+for i in range(20):
     ser.write(cmd.encode())
     time.sleep(0.1)
 
 cmd = '{"T":1,"L":-0.1,"R":-0.1}\n'
-for i in range(10):
+for i in range(20):
     ser.write(cmd.encode())
     time.sleep(0.1)
 
